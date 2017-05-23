@@ -14,14 +14,14 @@ public class Jury implements Election {
 	public Jury(){
 	}
 
-	public Population vote(Population voters, Population candidates) throws NotEnoughCandidates {
+	public Population vote(Population voters, Population candidates) {
 		int poolSize = candidates.getPeople().size();
 		if(size <= poolSize){
 			List<Person> pool = new ArrayList<Person>(candidates.getPeople());
 			Collections.shuffle(pool);
 			return new Population(pool.subList(0, size));
 		}else{
-			throw new NotEnoughCandidates();
+			return null;
 		}
 	}
 

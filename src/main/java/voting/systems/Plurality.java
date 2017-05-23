@@ -22,15 +22,15 @@ public class Plurality implements Election {
 		float dist = size*2;
 		Person vote=null;
 		for(Person c:candidates.getPeople()){
-			if(c.dist(p) < dist){
-				dist = c.dist(p);
+			if(c.dist(p.getOpinions()) < dist){
+				dist = c.dist(p.getOpinions());
 				vote = c;
 			}
 		}
 		return vote;
 	}
 
-	public Population vote(Population voters, Population candidates) throws NotEnoughCandidates {
+	public Population vote(Population voters, Population candidates) {
 		int poolSize = candidates.getPeople().size();
 		if(size <= poolSize){
 			Map<Person,Integer> electionResults = new HashMap<Person,Integer>();
@@ -52,7 +52,7 @@ public class Plurality implements Election {
 			
 			return new Population(winners.subList(poolSize-size, poolSize));
 		}else{
-			throw new NotEnoughCandidates();
+			return null;
 		}
 	}
 
