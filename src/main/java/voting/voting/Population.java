@@ -22,7 +22,7 @@ public class Population {
 	}
 	
 	public List<Person> getPeople(){
-		return people;
+		return new ArrayList<Person>(people);
 	}
 
 	public int majorityVote(int i){
@@ -79,8 +79,39 @@ public class Population {
 		for(int i=0;i<issues;i++){
 			sum[i]=sum[i]/people.size();
 		}
-	
-		
 		return sum;
 	}
+
+	public Person nearestDist(float[] p){
+		float dist = people.get(0).getOpinions().length*2;
+		Person nearest = null;
+		
+		for(Person c:people){
+			if(c.dist(p)<dist){
+				nearest=c;
+				dist=c.dist(p);
+			}
+		}
+		
+		return nearest;
+	}
+
+	public float meanDist(float[] o){
+		float dist =0;
+		for(Person p:people){
+			dist+=p.dist(o);
+		}
+		
+		return dist/people.size();
+	}
+	
+	public float meanNearestDist(Population compare){
+		float dist =0;
+		for(Person p:people){
+			dist+=compare.nearestDist(p.getOpinions()).dist(p.getOpinions());
+		}
+		
+		return dist/people.size();
+	}
+	
 }

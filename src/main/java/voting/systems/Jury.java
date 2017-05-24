@@ -11,7 +11,8 @@ public class Jury implements Election {
 	
 	int size;
 	
-	public Jury(){
+	public Jury(int s){
+		size = s;
 	}
 
 	public Population vote(Population voters, Population candidates) {
@@ -25,8 +26,10 @@ public class Jury implements Election {
 		}
 	}
 
-	public void setSize(int s) {
-		size=s;
+	@Override
+	public String name() {
+		return "Jury of " + size;
 	}
+
 
 }

@@ -4,18 +4,26 @@ import java.util.Random;
 
 public class Person {
 	
-	float[] opinions;
+	private float[] opinions;
 	
 	public Person(int issues, Random rand){
 		opinions = new float[issues];
 		for(int i=0;i<issues;i++){
 			opinions[i]=rand.nextFloat() * 2 - 1;
 		}
+		
     	float mean = this.dist(new float[issues]);
-
 		for(int i=0;i<issues;i++){
 			opinions[i]=opinions[i]/mean;
 		}
+	}
+	
+	private Person(float[] o){
+		opinions=o;
+	}
+	
+	public static Person HypotheticalPerson(float[] o){
+		return new Person(o);
 	}
 	
 	public float[] getOpinions(){
@@ -29,5 +37,7 @@ public class Person {
 		}
 		return (float) Math.sqrt(d);
 	}
+	
+	
 
 }
