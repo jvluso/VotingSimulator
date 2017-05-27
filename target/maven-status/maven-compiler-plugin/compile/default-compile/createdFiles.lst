@@ -1,5 +1,7 @@
 voting/voting/Population.class
 voting/systems/HypotheticalDirectDemocracy.class
+voting/systems/InstantRunoff$Ballot.class
+voting/systems/InstantRunoff.class
 voting/systems/WithCandidates.class
 voting/systems/Approval$Ballot.class
 voting/voting/Simulate.class

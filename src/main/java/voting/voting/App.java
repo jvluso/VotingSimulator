@@ -8,6 +8,7 @@ import voting.systems.HypotheticalBestRunningCandidate;
 import voting.systems.HypotheticalDirectDemocracy;
 import voting.systems.Approval;
 import voting.systems.HypotheticalPerfectSingleWinner;
+import voting.systems.InstantRunoff;
 import voting.systems.Jury;
 import voting.systems.Score;
 import voting.systems.WithCandidates;
@@ -26,6 +27,7 @@ public class App
     	elections.add(new WithCandidates(5,new HypotheticalBestRunningCandidate()));
     	elections.add(new WithCandidates(5,new Score(1)));
     	elections.add(new WithCandidates(5,new Approval(1,1)));
+    	elections.add(new WithCandidates(5,new InstantRunoff()));
     	elections.add(new WithCandidates(5,new Jury(1)));
     	elections.add(new HypotheticalDirectDemocracy());
     	elections.add(new WithCandidates(20,new Score(5)));
