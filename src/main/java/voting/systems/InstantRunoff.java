@@ -27,7 +27,6 @@ public class InstantRunoff implements Election {
 		List<Person> preference = new ArrayList<Person>(candidates.getPeople());
 		
 		preference.sort(new IdeaComparator(p.getOpinions()));
-		Collections.reverse(preference);
 		return new Ballot(preference);
 	}
 	
@@ -66,7 +65,8 @@ public class InstantRunoff implements Election {
 				}
 			}
 			List<Person> remainingCandidates = candidates.getPeople();
-			while(electionResults.get(Collections.min(remainingCandidates,new MapComparator<Person>(electionResults)))<threshold){
+			while(!electionResults.containsKey(Collections.min(remainingCandidates,new MapComparator<Person>(electionResults)))||
+					electionResults.get(Collections.min(remainingCandidates,new MapComparator<Person>(electionResults)))<threshold){
 
 				remainingCandidates.remove(Collections.min(remainingCandidates,new MapComparator<Person>(electionResults)));
 				electionResults = new HashMap<Person,Integer>();
