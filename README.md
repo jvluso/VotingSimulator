@@ -10,15 +10,16 @@
 
  The following uses a population of 105 people, 2 issues, and 10000 repetitions. 
 
-. | majorityMisses | meanMisses | superMajorityMisses | distBetwenMeans | meanDistToMean | meanNearestDist | coloquial name | Bayesian regret 1 | Bayesian regret 2
- --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
-HypotheticalPerfectSingleWinner | 0.257 | 0 | 1.9993 | 0 | 0.992688676 | 0.992688676 | Hypothetical Perfect Single Winner | -3.800978238 | -3.800978238
-HypotheticalBestRunningCandidate from 5 candidates | 0.3806 | 0.2842 | 1.9993 | 0.9267036784 | 1.204961237 | 1.204961237 | Hypothetical Best Running Candidate  | 0 | 0
-1 winner Reweighted Score using strategy honest from 5 candidates | 0.4498 | 0.4096 | 1.9993 | 0.9343424588 | 1.20908842 | 1.20908842 | Score Voting | 0.07390184166 | 0.07390184166
-1 winner Approval using strategy honest 1 votes from 5 candidates | 0.7588 | 0.767 | 1.9995 | 0.9714247821 | 1.240338955 | 1.240338955 | Plurality Voting | 0.6334777016 | 0.6334777016
-Jury of 1 from 5 candidates | 0.9321 | 0.9355 | 1.9998 | 0.9936711155 | 1.260808061 | 1.260808061 | Random Winner | 1 | 1
-HypotheticalDirectDemocracy | 0 | 0.257 | 0 | 0 | 0.992688676 | 0 | Direct Democracy | -3.800978238 | -21.57618212
-5 winner Reweighted Score using strategy honest from 20 candidates | 0.4061 | 0.4695 | 0.1039 | 0.1356509868 | 0.9940029487 | 0.3888564752 | RRV | -3.777444711 | -14.61327089
-5 winner Approval using strategy honest 5 votes from 20 candidates | 0.6762 | 0.6746 | 1.1693 | 0.5530348883 | 1.074347219 | 0.6260752375 | At-Large Elections | -2.33879046 | -10.36560295
-1 winner Approval using strategy honest 1 votes from 4 candidates from 5 districts | 0.6904 | 0.685 | 0.7836 | 0.3786388537 | 1.032724956 | 0.4707319458 | District Plurality | -3.084083749 | -13.14719878
-Jury of 5 from 20 candidates | 0.8506 | 0.8662 | 0.7501 | 0.3889514866 | 1.041020213 | 0.4738024138 | Random Jury | -2.935547867 | -13.09221861
+.|majorityMisses|meanMisses|superMajorityMisses|distBetwenMeans|meanDistToMean|issueUtility|medianDiff|meanNearestDist
+ --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+HypotheticalPerfectSingleWinner|0.2578|0.0|1.9995|0.0|0.9928256420254707|0.11058811928486684|0.15830334772883028|0.9928256420254707
+HypotheticalBestRunningCandidate from 20 candidates|0.2568|0.0836|1.9995|0.9146005707631719|1.1973567295670509|0.10908673156906153|0.7925984482367209|1.1973567295670509
+1 winner Reweighted Score using strategy honest from 20 candidates|0.2891|0.2339|1.9995|0.9220272373393463|1.1907808202981949|0.10278693249419739|0.8095090373171359|1.1907808202981949
+1 winner Approval using strategy honest 1 votes from 20 candidates|0.8846|0.9038|1.9995|0.9890605806771214|1.251742444086075|0.017406581425652257|0.984492175456284|1.251742444086075
+1 winner IRV using strategy honest from 20 candidates|0.5756|0.5238|1.9995|0.9474650027133393|1.210617317545414|0.07354083260464249|0.8862257014936046|1.210617317545414
+Jury of 1 from 20 candidates|0.9159|0.9193|1.9995|0.9920201058918258|1.2594738353967667|0.013498324306705035|0.9921973373568997|1.2594738353967667
+HypotheticalDirectDemocracy|0.0|0.2578|0.0|0.0|0.9928256420254707|0.10169540945439366|0.0|0.0
+5 winner Reweighted Score using strategy honest from 20 candidates|0.4052|0.4668|0.0982|0.13550284503517215|0.9942152365446091|0.08116659448147111|0.5644470883442578|0.39121081532686947
+5 winner Approval using strategy honest 5 votes from 20 candidates|0.6791|0.6823|1.1567|0.5480226053123233|1.0737947175979614|0.0537088769655762|0.792636073640125|0.6243538219541311
+1 winner Approval using strategy honest 1 votes from 4 candidates from 5 districts|0.6855|0.6899|0.7717|0.37602632589436746|1.0324357074558734|0.05226376954612788|0.6553797540152924|0.46953012799471616
+Jury of 5 from 20 candidates|0.857|0.8768|0.7463|0.3901266993580742|1.041443212646246|0.02246245071090816|0.7077874692292668|0.47398947010338305

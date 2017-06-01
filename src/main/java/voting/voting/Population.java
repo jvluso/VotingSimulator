@@ -1,6 +1,7 @@
 package voting.voting;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -39,6 +40,15 @@ public class Population {
 	}
 	
 
+	public float[] majorityVotes(){
+		float[] votes = new float[people.get(0).getOpinions().length];
+		for(int i=0;i<people.get(0).getOpinions().length;i++){
+			votes[i] = majorityVote(i);
+		}
+		return votes;
+	}
+	
+
 	public int superMajorityVote(int i){
 		int sup =0;
 		for(Person p:people){
@@ -66,6 +76,16 @@ public class Population {
 		sum=sum/people.size();
 	
 		return sum;
+	}
+
+	public float medianOpinion(int i){
+		List<Float> sum = new ArrayList<Float>();
+		for(Person p:people){
+			sum.add(p.getOpinions()[i]);
+		}
+		Collections.sort(sum);
+	
+		return sum.get(sum.size()/2);
 	}
 	
 	public float[] meanOpinion(){

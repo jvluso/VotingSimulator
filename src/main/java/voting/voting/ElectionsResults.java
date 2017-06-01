@@ -11,6 +11,8 @@ public class ElectionsResults {
 	private double distBetwenMeans = 0;
 	private double meanDistToMean = 0;
 	private double meanNearestDist = 0;
+	private double issueUtility = 0;
+	private double medianDiff = 0;
 	private double repititions = 0;
 	
 	public ElectionsResults(Election v){
@@ -50,6 +52,7 @@ public class ElectionsResults {
     	Population congress = votingSystem.vote(voters, candidates);
 
     	float dist = 0;
+    	float medDist = 0;
     	for(int i=0;i<voters.getPeople().get(0).getOpinions().length;i++){
     		if(voters.majorityVote(i) != congress.majorityVote(i)){
     			majorityMisses++;
@@ -61,8 +64,11 @@ public class ElectionsResults {
     			superMajorityMisses++;
     		}
     		dist+=(voters.meanOpinion(i)-congress.meanOpinion(i))*(voters.meanOpinion(i)-congress.meanOpinion(i));
+    		medDist+=(voters.medianOpinion(i)-congress.medianOpinion(i))*(voters.medianOpinion(i)-congress.medianOpinion(i));
     	}
+    	issueUtility+=dot(voters.meanOpinion(),congress.majorityVotes());
     	distBetwenMeans+=Math.sqrt(dist);
+    	medianDiff+=Math.sqrt(medDist);
     	meanDistToMean+=voters.meanDist(congress.meanOpinion());
     	meanNearestDist+=voters.meanNearestDist(congress);
     	repititions++;
@@ -76,6 +82,8 @@ public class ElectionsResults {
     	System.out.println("superMajorityMisses : " + superMajorityMisses/repititions);
     	System.out.println("distBetwenMeans : " + distBetwenMeans/repititions);
     	System.out.println("meanDistToMean : " + meanDistToMean/repititions);
+    	System.out.println("issueUtility : " + issueUtility/repititions);
+    	System.out.println("medianDiff : " + medianDiff/repititions);
     	System.out.println("meanNearestDist : " + meanNearestDist/repititions);
 	}
 
@@ -87,6 +95,8 @@ public class ElectionsResults {
     	System.out.print(superMajorityMisses/repititions + sep);
     	System.out.print(distBetwenMeans/repititions + sep);
     	System.out.print(meanDistToMean/repititions + sep);
+    	System.out.print(issueUtility/repititions + sep);
+    	System.out.print(medianDiff/repititions + sep);
     	System.out.print(meanNearestDist/repititions + "\n");
 	}
 	public static void csvHead(String sep){
@@ -97,7 +107,19 @@ public class ElectionsResults {
     	System.out.print("superMajorityMisses" + sep);
     	System.out.print("distBetwenMeans" + sep);
     	System.out.print("meanDistToMean" + sep);
+    	System.out.print("issueUtility" + sep);
+    	System.out.print("medianDiff" + sep);
     	System.out.print("meanNearestDist" + "\n");
+	}
+	
+	private float dot(float[] a,float[] b){
+		float s =0;
+		
+		for(int i=0;i<a.length;i++){
+			s+=a[i]*b[i];
+		}
+		
+		return s;
 	}
 
 }

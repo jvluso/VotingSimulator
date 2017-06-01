@@ -24,11 +24,11 @@ public class App
     	
     	List<Election> elections = new ArrayList<Election>();
     	elections.add(new HypotheticalPerfectSingleWinner());
-    	elections.add(new WithCandidates(5,new HypotheticalBestRunningCandidate()));
-    	elections.add(new WithCandidates(5,new Score(1)));
-    	elections.add(new WithCandidates(5,new Approval(1,1)));
-    	elections.add(new WithCandidates(5,new InstantRunoff()));
-    	elections.add(new WithCandidates(5,new Jury(1)));
+    	elections.add(new WithCandidates(20,new HypotheticalBestRunningCandidate()));
+    	elections.add(new WithCandidates(20,new Score(1)));
+    	elections.add(new WithCandidates(20,new Approval(1,1)));
+    	elections.add(new WithCandidates(20,new InstantRunoff()));
+    	elections.add(new WithCandidates(20,new Jury(1)));
     	elections.add(new HypotheticalDirectDemocracy());
     	elections.add(new WithCandidates(20,new Score(5)));
     	elections.add(new WithCandidates(20,new Approval(5,5)));
