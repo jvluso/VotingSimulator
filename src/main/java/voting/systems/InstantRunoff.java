@@ -37,7 +37,7 @@ public class InstantRunoff implements Election {
 			Strategy<List<Person>> strategy = new HonestNList(candidates.getPeople().size());
 
 			for(Person p:voters.getPeople()){
-				ballots.add(strategy.vote(p,candidates));
+				ballots.add(p.vote(candidates,strategy));
 			}
 			
 			

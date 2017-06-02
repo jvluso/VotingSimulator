@@ -2,6 +2,9 @@ package voting.voting;
 
 import java.util.Random;
 
+import voting.strategies.Ballot;
+import voting.strategies.Strategy;
+
 public class Person {
 	
 	private float[] opinions;
@@ -36,6 +39,11 @@ public class Person {
 			d+=(opinions[i]-p[i])*(opinions[i]-p[i]);
 		}
 		return (float) Math.sqrt(d);
+	}
+	
+	
+	public <T> Ballot<T> vote(Population candidates, Strategy<T> def){
+		return def.vote(this, candidates);
 	}
 	
 	

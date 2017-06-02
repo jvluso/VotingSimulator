@@ -35,7 +35,7 @@ public class App
     	elections.add(new WithDistricts(5,new WithCandidates(4,new Approval(1,1))));
     	elections.add(new WithCandidates(20,new Jury(5)));
     	
-    	Simulate.vote(populationSize, issues, repititions,
+    	Simulate.electionTypes(populationSize, issues, repititions,
     			elections);
     	
     }

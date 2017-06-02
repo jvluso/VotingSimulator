@@ -33,7 +33,7 @@ public class Score implements Election {
 			List<Ballot<Map<Person,Float>>> ballots = new LinkedList<Ballot<Map<Person,Float>>>();
 
 			for(Person p:voters.getPeople()){
-				ballots.add(voteStrategy.vote(p,candidates));
+				ballots.add(p.vote(candidates,voteStrategy));
 			}
 			
 			

@@ -6,12 +6,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-
 import voting.strategies.Ballot;
 import voting.strategies.HonestNList;
 import voting.strategies.Strategy;
-import voting.voting.IdeaComparator;
 import voting.voting.MapComparator;
 import voting.voting.Person;
 import voting.voting.Population;
@@ -35,8 +32,10 @@ public class Approval implements Election {
 			List<Ballot<List<Person>>> ballots = new LinkedList<Ballot<List<Person>>>();
 
 			for(Person p:voters.getPeople()){
-				ballots.add(voteStrategy.vote(p,candidates));
+				ballots.add(p.vote(candidates,voteStrategy));
 			}
+			
+			//each person lists all the candidates they approve of
 			
 			
 			Map<Person,Integer> electionResults = new HashMap<Person,Integer>();
@@ -48,11 +47,14 @@ public class Approval implements Election {
 						electionResults.put(p,1);
 					}
 				}
-				
 			}
+			
+			//count the number of votes each candidate received
 			
 			List<Person> winners = new ArrayList<Person>(candidates.getPeople());
 			Collections.sort(winners,new MapComparator<Person>(electionResults));
+			
+			//the candidates with the most votes win
 			
 			return new Population(winners.subList(poolSize-size, poolSize));
 		}else{

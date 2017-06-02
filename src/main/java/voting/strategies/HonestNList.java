@@ -28,4 +28,9 @@ public class HonestNList implements Strategy<List<Person>> {
 		return new Ballot<List<Person>>(preference.subList(0, n));
 	}
 
+	@Override
+	public Ballot<List<Person>> vote(Person voter, Population candidates, List<Ballot<List<Person>>> information) {
+		return vote(voter,candidates);
+	}
+
 }

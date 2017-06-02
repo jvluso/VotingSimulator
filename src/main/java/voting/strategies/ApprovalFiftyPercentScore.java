@@ -10,15 +10,15 @@ import voting.voting.IdeaComparator;
 import voting.voting.Person;
 import voting.voting.Population;
 
-public class HonestScore implements Strategy<Map<Person,Float>> {
+public class ApprovalFiftyPercentScore implements Strategy<Map<Person,Float>> {
 
 	
-	public HonestScore(){
+	public ApprovalFiftyPercentScore(){
 	}
 	
 	@Override
 	public String name() {
-		return "Honest Score";
+		return "ApprovalFiftyPercentScore";
 	}
 
 	@Override
@@ -29,7 +29,11 @@ public class HonestScore implements Strategy<Map<Person,Float>> {
 		float min = voter.dist(Collections.min(preference,comp).getOpinions());
 		Map<Person,Float> vote = new HashMap<Person,Float>();
 		for(Person c:preference){
-			vote.put(c, 1-(voter.dist(c.getOpinions())-min)/(max-min));
+			if(voter.dist(c.getOpinions())<(max+min)/2){
+				vote.put(c, (float) 1);
+			}else{
+				vote.put(c, (float) 0);
+			}
 		}
 		return new Ballot<Map<Person,Float>>(vote);
 	}
