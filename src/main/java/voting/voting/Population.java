@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import voting.strategies.Strategy;
+
 public class Population {
 	
 	private List<Person> people;
@@ -14,6 +16,21 @@ public class Population {
     	Random rand = new Random();
     	for(int i=0;i<size;i++){
     		people.add(i, new Person(issues,rand));
+    	}
+		
+	}
+
+	public Population(int size,int issues,Strategy s1, Strategy s2){
+    	people = new ArrayList<Person>(size);
+    	Random rand = new Random();
+    	for(int i=0;i<size;i++){
+    		people.add(i, new Person(issues,rand));
+    		if(rand.nextFloat()*2-1<people.get(i).getOpinions()[0]){
+        		people.get(i).setStrategy(s1);
+    		}else{
+        		people.get(i).setStrategy(s2);
+    			
+    		}
     	}
 		
 	}

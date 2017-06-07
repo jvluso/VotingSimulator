@@ -3,6 +3,8 @@ package voting.voting;
 import java.util.ArrayList;
 import java.util.List;
 
+import voting.strategies.ApprovalFiftyPercentScore;
+import voting.strategies.HonestScore;
 import voting.systems.Election;
 import voting.systems.HypotheticalBestRunningCandidate;
 import voting.systems.HypotheticalDirectDemocracy;
@@ -35,8 +37,10 @@ public class App
     	elections.add(new WithDistricts(5,new WithCandidates(4,new Approval(1,1))));
     	elections.add(new WithCandidates(20,new Jury(5)));
     	
-    	Simulate.vote(populationSize, issues, repititions,
-    			elections);
+    	Election election = new WithCandidates(5,new Score(1));
+    	
+    	//Simulate.electionTypes(populationSize, issues, repititions,elections);
+    	Simulate.strategies(populationSize, issues, repititions,election,new HonestScore(),new ApprovalFiftyPercentScore());
     	
     }
     
