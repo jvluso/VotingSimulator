@@ -40,13 +40,13 @@ public class StrategyResults {
 
     	System.out.print(votingSystem.name()+ strategies + sep);
     	System.out.print(popMean/repititions + sep);
-    	System.out.print(electedMean/repititions + sep);
+    	System.out.print(electedMean/repititions + "\n");
 	}
 	public static void csvHead(String sep){
 
     	System.out.print("." + sep);
     	System.out.print("popMean" + sep);
-    	System.out.print("electedMean" + sep);
+    	System.out.print("electedMean" + "\n");
 	}
 
 

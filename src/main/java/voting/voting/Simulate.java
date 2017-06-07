@@ -43,37 +43,32 @@ public class Simulate {
 	}
 	
 
-	public static void strategies(
+	public static <T> void strategies(
 			 int populationSize,
 			 int issues,
 			 int repititions,
-			 Election votingSystems,
-			 Strategy s1,
-			 Strategy s2){
+			 Election votingSystem,
+			 Strategy<T> s1,
+			 Strategy<T> s2){
 		
 
     	Population population;
     	Election candidateSelection = new Jury(populationSize);
-		List<ElectionsResults> results = new ArrayList<ElectionsResults>();
+		StrategyResults results = new StrategyResults(votingSystem, s1.name() + " " + s2.name());
     	
-		for(Election e:votingSystems){
-			results.add(new ElectionsResults(e));
-		}
 		
     	for(int j=0;j<repititions;j++){
-        	population = new Population(populationSize,issues);
+        	population = new Population(populationSize,issues,s1,s2);
+        	
+        	
         	Population candidates = candidateSelection.vote(population, population);
 
-        	for(ElectionsResults r:results){
-        		r.addResult(population, candidates);
-        	}
+        	results.addResult(population, candidates);
         	
     	}
 
-    	ElectionsResults.csvHead("\t");
-    	for(ElectionsResults r:results){
-    		r.csvReport("\t");
-    	}
+    	StrategyResults.csvHead("\t");
+    	results.csvReport("\t");
     	
 		
 	}
