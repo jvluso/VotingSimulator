@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class MapComparator<T> implements Comparator<T> {
 
-	private Map<T,Integer> map;
+	private Map<T,? extends Comparable> map;
 	
-	public MapComparator(Map<T,Integer> m){
+	public MapComparator(Map<T,? extends Comparable> m){
 		map=m;
 	}
 	
@@ -17,13 +17,13 @@ public class MapComparator<T> implements Comparator<T> {
 			if(map.get(o2)==null){
 				return 0;
 			}else{
-				return map.get(o2);
+				return 1;
 			}
 		}else{
 			if(map.get(o2)==null){
-				return map.get(o1);
+				return -1;
 			}else{
-				return map.get(o1).compareTo(map.get(o2));
+				return (map.get(o1)).compareTo(map.get(o2));
 			}
 		}
 	}
