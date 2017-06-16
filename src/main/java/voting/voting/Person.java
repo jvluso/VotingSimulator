@@ -50,7 +50,7 @@ public class Person {
 	
 	
 	public <T> Ballot<T> vote(Population candidates, Strategy<T> def){
-		if(strategy.getClass()==null){
+		if(strategy==null||strategy.getClass()==null){
 			return def.vote(this, candidates);
 		}else{
 			return strategy.vote(this, candidates);

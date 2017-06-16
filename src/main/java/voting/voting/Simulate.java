@@ -2,6 +2,7 @@ package voting.voting;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import voting.strategies.Strategy;
 import voting.systems.Election;
@@ -23,8 +24,11 @@ public class Simulate {
 		for(Election e:votingSystems){
 			results.add(new ElectionsResults(e));
 		}
-		
+		Random random = new Random();
     	for(int j=0;j<repititions;j++){
+    		if(random.nextInt()%100==0){
+    			System.out.println(j);
+    		}
         	population = new Population(populationSize,issues);
         	Population candidates = candidateSelection.vote(population, population);
 
