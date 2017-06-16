@@ -11,6 +11,7 @@ import voting.systems.HypotheticalPerfectSingleWinner;
 import voting.systems.InstantRunoff;
 import voting.systems.Jury;
 import voting.systems.WithCandidates;
+import voting.systems.ranked.SingleTransferable;
 import voting.systems.score.AtLarge;
 import voting.systems.score.NonSequentialScore;
 import voting.systems.score.SequentialScore;
@@ -28,8 +29,9 @@ public class App
     	elections.add(new WithCandidates(20,new HypotheticalBestRunningCandidate()));
     	elections.add(new WithCandidates(20,new Jury(1)));
     	elections.add(new HypotheticalDirectDemocracy());
-    	elections.add(new WithCandidates(20,new SequentialScore(5)));
     	elections.add(new WithCandidates(20,new NonSequentialScore(5)));
+    	elections.add(new WithCandidates(20,new SequentialScore(5)));
+    	elections.add(new WithCandidates(20,new SingleTransferable(5)));
     	elections.add(new WithCandidates(20,new AtLarge(5)));
     	elections.add(new WithCandidates(20,new Jury(5)));
     	
