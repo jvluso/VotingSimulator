@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.voting.IdeaComparator;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class ApprovalFiftyPercentScore implements Strategy<Map<Person,Float>> {
 

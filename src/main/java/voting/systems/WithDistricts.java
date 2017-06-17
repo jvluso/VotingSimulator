@@ -3,8 +3,8 @@ package voting.systems;
 import java.util.LinkedList;
 import java.util.List;
 
-import voting.voting.Person;
-import voting.voting.Population;
+import voting.population.Person;
+import voting.population.Population;
 
 public class WithDistricts implements Election {
 	

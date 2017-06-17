@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import voting.population.Population;
+import voting.population.PopulationType;
 import voting.strategies.Strategy;
+import voting.systems.CandidateSelection;
 import voting.systems.Election;
 import voting.systems.Jury;
 
 public class Simulate {
 
 	public static void electionTypes(
-			 int populationSize,
-			 int issues,
+			 PopulationType type,
 			 int repititions,
 			 List<Election> votingSystems){
 		
 
     	Population population;
-    	Election candidateSelection = new Jury(populationSize);
+    	Election candidateSelection = new CandidateSelection();
 		List<ElectionsResults> results = new ArrayList<ElectionsResults>();
     	
 		for(Election e:votingSystems){
@@ -29,7 +31,7 @@ public class Simulate {
     		if(random.nextInt()%100==0){
     			System.out.println(j);
     		}
-        	population = new Population(populationSize,issues);
+        	population = new Population(type);
         	Population candidates = candidateSelection.vote(population, population);
 
         	for(ElectionsResults r:results){
@@ -48,8 +50,7 @@ public class Simulate {
 	
 
 	public static <T> void strategies(
-			 int populationSize,
-			 int issues,
+			 PopulationType type,
 			 int repititions,
 			 Election votingSystem,
 			 Strategy<T> s1,
@@ -57,12 +58,12 @@ public class Simulate {
 		
 
     	Population population;
-    	Election candidateSelection = new Jury(populationSize);
+    	Election candidateSelection = new CandidateSelection();
 		StrategyResults results = new StrategyResults(votingSystem, s1.name() + " " + s2.name());
     	
 		
     	for(int j=0;j<repititions;j++){
-        	population = new Population(populationSize,issues,s1,s2);
+        	population = new Population(type,s1,s2);
         	
         	
         	Population candidates = candidateSelection.vote(population, population);

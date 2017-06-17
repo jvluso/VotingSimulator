@@ -2,7 +2,7 @@ package voting.systems;
 
 
 
-import voting.voting.Population;
+import voting.population.Population;
 
 public interface Election {
 	

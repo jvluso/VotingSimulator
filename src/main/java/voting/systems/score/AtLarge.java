@@ -7,11 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.strategies.Ballot;
 import voting.voting.Enumerated;
 import voting.voting.MapComparator;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class AtLarge extends Score {
 

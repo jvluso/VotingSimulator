@@ -1,6 +1,6 @@
 package voting.systems;
 
-import voting.voting.Population;
+import voting.population.Population;
 
 public class HypotheticalDirectDemocracy implements Election {
 	

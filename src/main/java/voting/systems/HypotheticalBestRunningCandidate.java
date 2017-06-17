@@ -2,9 +2,9 @@ package voting.systems;
 
 import java.util.List;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.voting.IdeaComparator;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class HypotheticalBestRunningCandidate implements Election {
 	

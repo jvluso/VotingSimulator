@@ -1,4 +1,4 @@
-package voting.voting;
+package voting.population;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,25 +11,29 @@ public class Population {
 	
 	private List<Person> people;
 	
-	public Population(int size,int issues){
-    	people = new ArrayList<Person>(size);
-    	Random rand = new Random();
-    	for(int i=0;i<size;i++){
-    		people.add(i, new Person(issues,rand));
+	public Population(PopulationType type){
+		createPopulation(type);
+	}
+	private void createPopulation(PopulationType type){
+    	people = new ArrayList<Person>(type.getPopulationSize());
+    	for(int i=0;i<type.getPopulationSize();i++){
+    		if(i<=1||type.getRand().nextFloat()>type.getCloseness()){
+    			people.add(i, new Person(type.getIssues(),type.getRand()));
+    		}else{
+    			people.add(i,new Person(people.get(type.getRand().nextInt(i-1))
+    					                ,type.getCloseness(),type.getRand()));
+    		}
     	}
 		
 	}
 
-	public Population(int size,int issues,Strategy s1, Strategy s2){
-    	people = new ArrayList<Person>(size);
-    	Random rand = new Random();
-    	for(int i=0;i<size;i++){
-    		people.add(i, new Person(issues,rand));
-    		if(rand.nextFloat()*2-1<people.get(i).getOpinions()[0]){
-        		people.get(i).setStrategy(s1);
+	public Population(PopulationType type,Strategy s1, Strategy s2){
+		createPopulation(type);
+		for(Person p:people){
+    		if(type.getRand().nextFloat()*2-1<p.getOpinions()[0]){
+        		p.setStrategy(s1);
     		}else{
-        		people.get(i).setStrategy(s2);
-    			
+        		p.setStrategy(s2);
     		}
     	}
 		

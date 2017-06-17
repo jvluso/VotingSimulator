@@ -1,5 +1,6 @@
 package voting.voting;
 
+import voting.population.Population;
 import voting.systems.Election;
 
 public class ElectionsResults {

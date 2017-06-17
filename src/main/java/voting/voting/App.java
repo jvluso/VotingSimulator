@@ -1,14 +1,13 @@
 package voting.voting;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+import voting.population.PopulationType;
 import voting.systems.Election;
 import voting.systems.HypotheticalBestRunningCandidate;
 import voting.systems.HypotheticalDirectDemocracy;
 import voting.systems.HypotheticalPerfectSingleWinner;
-import voting.systems.InstantRunoff;
 import voting.systems.Jury;
 import voting.systems.WithCandidates;
 import voting.systems.ranked.SingleTransferable;
@@ -35,9 +34,11 @@ public class App
     	elections.add(new WithCandidates(20,new AtLarge(5)));
     	elections.add(new WithCandidates(20,new Jury(5)));
     	
+    	PopulationType type = new PopulationType(issues,populationSize);
+    	
     	//Election election = new WithCandidates(5,new SequentialScore(1));
     	
-    	Simulate.electionTypes(populationSize, issues, repititions,elections);
+    	Simulate.electionTypes(type, repititions,elections);
     	//Simulate.strategies(populationSize, issues, repititions,election,new HonestScore(),new ApprovalFiftyPercentScore());
     	
     	
