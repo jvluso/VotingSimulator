@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.strategies.Ballot;
 import voting.voting.MapComparator;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class SingleTransferable extends Ranked {
 
@@ -26,7 +26,7 @@ public class SingleTransferable extends Ranked {
 	@Override
 	protected Population calculate(List<Ballot<List<Person>>> ballots, Population candidates) {
 		
-		int threshold = ballots.size()/(1+size);
+		int threshold = ballots.size()/(1+size)+1;
 		List<Person> winners = new LinkedList<Person>();
 
 		List<Person> remainingCandidates = candidates.getPeople();

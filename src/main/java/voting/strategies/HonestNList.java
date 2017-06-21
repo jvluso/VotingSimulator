@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.voting.IdeaComparator;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class HonestNList implements Strategy<List<Person>> {
 

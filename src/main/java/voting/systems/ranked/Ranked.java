@@ -4,14 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.strategies.ApprovalFiftyPercentScore;
 import voting.strategies.Ballot;
 import voting.strategies.HonestList;
 import voting.strategies.HonestScore;
 import voting.strategies.Strategy;
 import voting.systems.Election;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public abstract class Ranked implements Election {
 	

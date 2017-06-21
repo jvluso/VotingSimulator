@@ -1,4 +1,4 @@
-package voting.voting;
+package voting.population;
 
 import java.util.Map;
 import java.util.Random;
@@ -10,6 +10,7 @@ public class Person {
 	
 	private float[] opinions;
 	private Strategy strategy;
+	private int name;
 
 	public Person(int issues, Random rand){
 		opinions = new float[issues];
@@ -21,6 +22,22 @@ public class Person {
 		for(int i=0;i<issues;i++){
 			opinions[i]=opinions[i]/mean;
 		}
+		name=rand.nextInt();
+	}
+	
+	public Person(Person cluster, float closeness, Random rand){
+		int issues = cluster.getOpinions().length;
+		opinions = new float[issues];
+		for(int i=0;i<issues;i++){
+			opinions[i]=(rand.nextFloat() * 2 - 1)
+					*(1-closeness)+cluster.getOpinions()[i];
+		}
+		
+    	float mean = this.dist(new float[issues]);
+		for(int i=0;i<issues;i++){
+			opinions[i]=opinions[i]/mean;
+		}
+		name=rand.nextInt();
 	}
 	
 	protected void setStrategy(Strategy s){
@@ -30,6 +47,7 @@ public class Person {
 	private Person(float[] o,Strategy s){
 		opinions=o;
 		strategy=s;
+		name=0;
 	}
 	
 	public static Person HypotheticalPerson(float[] o){

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import voting.voting.Person;
-import voting.voting.Population;
+import voting.population.Person;
+import voting.population.Population;
 
 public class HypotheticalPerfectSingleWinner implements Election {
 	

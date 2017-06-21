@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.strategies.Ballot;
 import voting.voting.Enumerated;
-import voting.voting.Person;
-import voting.voting.Population;
 
 public class NonSequentialScore extends Score {
 
@@ -46,6 +46,10 @@ public class NonSequentialScore extends Score {
 	}
 	
 
-    
+
+	@Override
+	public String name() {
+		return size + " winner Non-Sequential Score using strategy" + voteStrategy.name();
+	}
 
 }

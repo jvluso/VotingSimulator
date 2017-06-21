@@ -2,6 +2,8 @@ package voting.voting;
 
 import java.util.Comparator;
 
+import voting.population.Person;
+
 public class IdeaComparator implements Comparator<Person> {
 
 	private float[] opinion;

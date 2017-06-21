@@ -6,14 +6,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import voting.population.Person;
+import voting.population.Population;
 import voting.strategies.Ballot;
-import voting.voting.Person;
-import voting.voting.Population;
+import voting.strategies.HonestScore;
 
 public class SequentialScore extends Score {
 
 	public SequentialScore(int s) {
 		super(s);
+		voteStrategy=new HonestScore();
 	}
 	
 	@Override
@@ -46,6 +48,12 @@ public class SequentialScore extends Score {
 		}
 		
 		return new Population(winners);
+	}
+	
+
+	@Override
+	public String name() {
+		return size + " winner Sequential Score using strategy" + voteStrategy.name();
 	}
 
 }

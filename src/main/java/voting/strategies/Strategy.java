@@ -2,8 +2,8 @@ package voting.strategies;
 
 import java.util.List;
 
-import voting.voting.Person;
-import voting.voting.Population;
+import voting.population.Person;
+import voting.population.Population;
 
 public interface Strategy<T> {
 	
