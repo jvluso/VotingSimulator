@@ -41,7 +41,7 @@ public class InstantRunoff implements Election {
 			}
 			
 			
-			int threshold = voters.getPeople().size()/(1+size);
+			int threshold = voters.getPeople().size()/(1+size)+1;
 			
 			Map<Person,Integer> electionResults = new HashMap<Person,Integer>();
 

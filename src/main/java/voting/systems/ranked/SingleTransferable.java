@@ -26,7 +26,7 @@ public class SingleTransferable extends Ranked {
 	@Override
 	protected Population calculate(List<Ballot<List<Person>>> ballots, Population candidates) {
 		
-		int threshold = ballots.size()/(1+size);
+		int threshold = ballots.size()/(1+size)+1;
 		List<Person> winners = new LinkedList<Person>();
 
 		List<Person> remainingCandidates = candidates.getPeople();

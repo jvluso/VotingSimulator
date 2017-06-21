@@ -47,5 +47,11 @@ public class SequentialScore extends Score {
 		
 		return new Population(winners);
 	}
+	
+
+	@Override
+	public String name() {
+		return size + " winner Sequential Score using strategy" + voteStrategy.name();
+	}
 
 }

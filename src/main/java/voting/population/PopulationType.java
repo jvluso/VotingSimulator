@@ -25,11 +25,11 @@ public class PopulationType {
 		this.populationSize = populationSize;
 	}
 	
-	public PopulationType(int i,int p){
+	public PopulationType(int i,int p, float c){
 		issues=i;
 		populationSize=p;
     	rand = new Random();
-    	closeness = (float) 0.9;
+    	closeness = c;
 	}
 	public float getCloseness() {
 		return closeness;
