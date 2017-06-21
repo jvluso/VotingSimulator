@@ -1,23 +1,21 @@
 package voting.systems.score;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import voting.population.Person;
 import voting.population.Population;
+import voting.strategies.ApprovalFiftyPercentScore;
 import voting.strategies.Ballot;
-import voting.voting.Enumerated;
 import voting.voting.MapComparator;
 
 public class AtLarge extends Score {
 
 	public AtLarge(int s) {
 		super(s);
+		voteStrategy=new ApprovalFiftyPercentScore();
 	}
 	
 	@Override

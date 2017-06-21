@@ -9,11 +9,13 @@ import java.util.Map;
 import voting.population.Person;
 import voting.population.Population;
 import voting.strategies.Ballot;
+import voting.strategies.HonestScore;
 
 public class SequentialScore extends Score {
 
 	public SequentialScore(int s) {
 		super(s);
+		voteStrategy=new HonestScore();
 	}
 	
 	@Override
