@@ -64,7 +64,7 @@ This is how many times the simulation will run. If it doesn't run ehough, stasti
 
 ## Sample Output
 
- The following uses a population of 105 people, 2 issues, no clustering, and 10000 repetitions. 
+ The following uses a population of 1005 people, 3 issues, clustering of 0.5, and 10000 repetitions. 
 
 
 
