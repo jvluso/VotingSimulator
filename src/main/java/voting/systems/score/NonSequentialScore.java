@@ -49,7 +49,7 @@ public class NonSequentialScore extends Score {
 
 	@Override
 	public String name() {
-		return size + " winner Non-Sequential Score using strategy" + voteStrategy.name();
+		return size + " winner Non-Sequential Score using strategy " + voteStrategy.name();
 	}
 
 }

@@ -14,13 +14,34 @@
   {
     "type":"WithCandidates",
     "system":{
-      "type":"HypotheticalBestRunningCandidate"
+      "type":"Jury",
+      "size":1
     }
   },
   {
     "type":"WithCandidates",
     "system":{
-      "type":"SequentialScore"
+      "type":"Plurality"
+    }
+  },
+  {
+    "type":"WithCandidates",
+    "system":{
+      "type":"SequentialScore",
+      "size":1
+    }
+  },
+  {
+    "type":"WithCandidates",
+    "system":{
+      "type":"SingleTransferable",
+      "size":1
+    }
+  },
+  {
+    "type":"WithCandidates",
+    "system":{
+      "type":"Jury"
     }
   },
   {
@@ -30,9 +51,19 @@
     }
   },
   {
+    "type":"WithDistricts",
+    "system":{
+      "type":"WithCandidates",
+      "candidatePool":4,
+      "system":{
+        "type":"Plurality"
+      }
+    }
+  },
+  {
     "type":"WithCandidates",
     "system":{
-      "type":"Jury"
+      "type":"SequentialScore"
     }
   }
 ]

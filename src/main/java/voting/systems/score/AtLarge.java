@@ -43,7 +43,7 @@ public class AtLarge extends Score {
 
 	@Override
 	public String name() {
-		return size + " winner At Large using strategy" + voteStrategy.name();
+		return size + " winner At Large using strategy " + voteStrategy.name();
 	}
 
 }

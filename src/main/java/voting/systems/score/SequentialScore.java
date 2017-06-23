@@ -53,7 +53,7 @@ public class SequentialScore extends Score {
 
 	@Override
 	public String name() {
-		return size + " winner Sequential Score using strategy" + voteStrategy.name();
+		return size + " winner Sequential Score using strategy " + voteStrategy.name();
 	}
 
 }
