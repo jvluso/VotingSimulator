@@ -15,7 +15,7 @@ public class Plurality extends Ranked {
 
 	@Override
 	public String name() {
-		return "Plurality";
+		return "Plurality using strategy " + voteStrategy.name();
 	}
 
 	@Override

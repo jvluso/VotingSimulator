@@ -20,7 +20,7 @@ public class SingleTransferable extends Ranked {
 
 	@Override
 	public String name() {
-		return size+"winner STV";
+		return size+" winner STV using strategy " + voteStrategy.name();
 	}
 
 	@Override

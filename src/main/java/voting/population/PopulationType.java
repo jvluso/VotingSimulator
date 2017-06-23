@@ -15,26 +15,22 @@ public class PopulationType {
 	public Random getRand() {
 		return rand;
 	}
-	public void setIssues(int issues) {
-		this.issues = issues;
-	}
 	public int getPopulationSize() {
 		return populationSize;
 	}
-	public void setPopulationSize(int populationSize) {
-		this.populationSize = populationSize;
-	}
-	
 	public PopulationType(int i,int p, float c){
 		issues=i;
 		populationSize=p;
     	rand = new Random();
     	closeness = c;
 	}
+	public PopulationType(){
+		issues=3;
+		populationSize=105;
+    	rand = new Random();
+    	closeness = 0;
+	}
 	public float getCloseness() {
 		return closeness;
-	}
-	public void setCloseness(float closeness) {
-		this.closeness = closeness;
 	}
 }

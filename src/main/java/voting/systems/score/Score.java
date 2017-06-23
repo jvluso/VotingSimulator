@@ -49,7 +49,7 @@ public abstract class Score implements Election {
 
 	@Override
 	public String name() {
-		return size + " winner Reweighted Score using strategy" + voteStrategy.name();
+		return size + " winner Reweighted Score using strategy " + voteStrategy.name();
 	}
 
 
