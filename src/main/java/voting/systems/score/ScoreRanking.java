@@ -11,10 +11,10 @@ import voting.strategies.ApprovalFiftyPercentScore;
 import voting.strategies.Ballot;
 import voting.voting.MapComparator;
 
-public class AtLarge extends Score {
+public class ScoreRanking extends Score {
 
-	public AtLarge(int s) {
-		super(s);
+	public ScoreRanking() {
+		super(0);
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class AtLarge extends Score {
 		Collections.sort(winners, new MapComparator<Person>(electionResults));
 		
 		
-		return new Population(winners.subList(winners.size()-size, winners.size()));
+		return new Population(winners);
 	}
 	
 

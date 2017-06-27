@@ -6,6 +6,7 @@ import java.util.Map;
 
 import voting.population.Person;
 import voting.population.Population;
+import voting.strategies.ApprovalFiftyPercentScore;
 import voting.strategies.Ballot;
 import voting.voting.Enumerated;
 
@@ -13,6 +14,7 @@ public class NonSequentialScore extends Score {
 
 	public NonSequentialScore(int s) {
 		super(s);
+		voteStrategy=new ApprovalFiftyPercentScore();
 	}
 	
 	@Override

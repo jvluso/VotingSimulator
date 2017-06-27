@@ -1,10 +1,13 @@
 package voting.voting;
 
+import voting.polling.Poll;
+import voting.polling.ScorePoll;
 import voting.population.Population;
 import voting.systems.Election;
 
 public class StrategyResults {
-	
+
+	private Poll poll;
 	private String strategies;
 	private Election votingSystem;
 	private double popMean = 0;
@@ -14,6 +17,7 @@ public class StrategyResults {
 	public StrategyResults(Election v, String s){
 		votingSystem=v;
 		strategies=s;
+		poll = new ScorePoll();
 	}
 
 	public Election getVotingSystem() {
@@ -22,7 +26,7 @@ public class StrategyResults {
 
 	public void addResult(Population voters, Population candidates){
 
-    	Population congress = votingSystem.vote(voters, candidates);
+    	Population congress = votingSystem.vote(voters, poll.poll(voters, candidates));
 
     	popMean+=voters.meanOpinion(0);
     	electedMean+=congress.meanOpinion(0);
