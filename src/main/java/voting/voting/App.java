@@ -24,11 +24,11 @@ public class App
     	switch(setup.type){
 		case Elections:
 	    	Simulate.electionTypes(PopulationFactory.getPopulation(), 
-	    						   PopulationFactory.getRepetitions(),
+	    						   setup.repetitions,
 	    						   ElectionFactory.getElections());
 		case Strategies:
 	    	Simulate.strategies(PopulationFactory.getPopulation(), 
-	    						   PopulationFactory.getRepetitions(),
+	    						   setup.repetitions,
 	    						   ElectionFactory.getElections().get(0),
 	    						   StrategyFactory.getRankedStrategies().get(0),
 	    						   StrategyFactory.getRankedStrategies().get(1));
@@ -36,9 +36,9 @@ public class App
 			break;
     	
     	}
-    	Simulate.electionTypes(PopulationFactory.getPopulation(), 
-    						   PopulationFactory.getRepetitions(),
-    						   ElectionFactory.getElections());
+    	//Simulate.electionTypes(PopulationFactory.getPopulation(), 
+    	//					   PopulationFactory.getRepetitions(),
+    	//					   ElectionFactory.getElections());
     	//Simulate.comparison(type, repititions,election1,election2);
     	//Simulate.strategies(populationSize, issues, repititions,election,new HonestScore(),new ApprovalFiftyPercentScore());
     	

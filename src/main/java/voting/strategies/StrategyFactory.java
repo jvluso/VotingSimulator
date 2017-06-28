@@ -18,11 +18,11 @@ public class StrategyFactory {
 
         Gson gson = new Gson();
 
-        Reader reader = new FileReader("src/main/resources/Elections.json");
+        Reader reader = new FileReader("src/main/resources/Strategies.json");
 
         List<StrategyConfiguration> strategyConfigs = Arrays.asList(gson.fromJson(reader, StrategyConfiguration[].class));
 
-        Reader defreader = new FileReader("src/main/resources/ElectionDefaults.json");
+        Reader defreader = new FileReader("src/main/resources/StrategyDefaults.json");
         
         StrategyConfiguration def = gson.fromJson(defreader, StrategyConfiguration.class);
     	
@@ -45,7 +45,7 @@ public class StrategyFactory {
 		case HonestList:
 			return new HonestList();
 		case HonestNList:
-			return new HonestNList(config.BallotSize);
+			return new HonestNList(config.ballotSize);
 		case DishonestTop2List:
 			return new DishonestTop2List();
 		default:

@@ -1,17 +1,5 @@
 [
   {
-    "type":"HypotheticalDirectDemocracy"
-  },
-  {
-    "type":"HypotheticalPerfectSingleWinner"
-  },
-  {
-    "type":"WithCandidates",
-    "system":{
-      "type":"HypotheticalBestRunningCandidate"
-    }
-  },
-  {
     "type":"WithCandidates",
     "system":{
       "type":"Jury",
@@ -64,6 +52,18 @@
     "type":"WithCandidates",
     "system":{
       "type":"SequentialScore"
+    }
+  },
+  {
+    "type":"HypotheticalDirectDemocracy"
+  },
+  {
+    "type":"HypotheticalPerfectSingleWinner"
+  },
+  {
+    "type":"WithCandidates",
+    "system":{
+      "type":"HypotheticalBestRunningCandidate"
     }
   }
 ]

@@ -1,5 +1,6 @@
 package voting.voting;
 
+import voting.polling.IRVPoll;
 import voting.polling.Poll;
 import voting.polling.ScorePoll;
 import voting.population.Population;
@@ -17,7 +18,7 @@ public class StrategyResults {
 	public StrategyResults(Election v, String s){
 		votingSystem=v;
 		strategies=s;
-		poll = new ScorePoll();
+		poll = new IRVPoll();
 	}
 
 	public Election getVotingSystem() {
