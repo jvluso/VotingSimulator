@@ -2,7 +2,8 @@ package voting.strategies;
 
 public class StrategyConfiguration {
 
-	RankedStrategyType type;
+	ScoreStrategyType scoreType;
+	RankedStrategyType rankedType;
 	Integer ballotSize;
 	
 	public StrategyConfiguration(){
@@ -10,8 +11,11 @@ public class StrategyConfiguration {
 	}
 	
 	public void withDefaults(StrategyConfiguration def){
-		if(type == null){
-			type = def.type;
+		if(rankedType == null){
+			rankedType = def.rankedType;
+		}
+		if(scoreType == null){
+			scoreType = def.scoreType;
 		}
 		if(ballotSize == null){
 			ballotSize = def.ballotSize;

@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 
 import voting.population.PopulationFactory;
 import voting.strategies.StrategyFactory;
+import voting.systems.Election;
 import voting.systems.ElectionFactory;
 
 public class App 
@@ -27,9 +28,10 @@ public class App
 	    						   setup.repetitions,
 	    						   ElectionFactory.getElections());
 		case Strategies:
+			Election election=ElectionFactory.getElections().get(0);
 	    	Simulate.strategies(PopulationFactory.getPopulation(), 
 	    						   setup.repetitions,
-	    						   ElectionFactory.getElections().get(0),
+	    						   election,
 	    						   StrategyFactory.getRankedStrategies().get(0),
 	    						   StrategyFactory.getRankedStrategies().get(1));
 		default:
